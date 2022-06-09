@@ -35,6 +35,7 @@ const (
 	MapperType                     // Mapper
 	ConfigSourcerType              // ConfigSourcer
 	TaskLauncherType               // TaskLauncher
+	InfraType                      // Infra
 	maxType
 )
 
@@ -49,6 +50,7 @@ var TypeMap = map[Type]interface{}{
 	AuthenticatorType:  (*Authenticator)(nil),
 	ConfigSourcerType:  (*ConfigSourcer)(nil),
 	TaskLauncherType:   (*TaskLauncher)(nil),
+	InfraType:          (*Infra)(nil),
 }
 
 // TaskLauncher launches a batch task, ie a task that runs to completion and does
@@ -75,6 +77,13 @@ type Builder interface {
 	// BuildFunc should return the method handle for the "build" operation.
 	// The build function has access to a *Source and should return an Artifact.
 	BuildFunc() interface{}
+}
+
+// Infra is responsible for building an artifact from source.
+type Infra interface {
+	// InfraFunc should return the method handle for the "infra" operation.
+	// The build function has access to a *Source and should return an Artifact.
+	InfraFunc() interface{}
 }
 
 // BuilderODR is an optional interface that builder type plugins can implement.

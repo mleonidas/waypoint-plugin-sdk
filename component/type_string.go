@@ -18,12 +18,13 @@ func _() {
 	_ = x[MapperType-7]
 	_ = x[ConfigSourcerType-8]
 	_ = x[TaskLauncherType-9]
-	_ = x[maxType-10]
+	_ = x[InfraType-10]
+	_ = x[maxType-11]
 }
 
-const _Type_name = "InvalidBuilderRegistryPlatformReleaseManagerLogPlatformAuthenticatorMapperConfigSourcerTaskLaunchermaxType"
+const _Type_name = "InvalidBuilderRegistryPlatformReleaseManagerLogPlatformAuthenticatorMapperConfigSourcerTaskLauncherInframaxType"
 
-var _Type_index = [...]uint8{0, 7, 14, 22, 30, 44, 55, 68, 74, 87, 99, 106}
+var _Type_index = [...]uint8{0, 7, 14, 22, 30, 44, 55, 68, 74, 87, 99, 104, 111}
 
 func (i Type) String() string {
 	if i >= Type(len(_Type_index)-1) {

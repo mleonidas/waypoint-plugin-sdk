@@ -36,6 +36,9 @@ func ForType(t component.Type) interface{} {
 	case component.TaskLauncherType:
 		return &TaskLauncher{}
 
+	case component.InfraType:
+		return &Infra{}
+
 	default:
 		return nil
 	}
