@@ -671,6 +671,45 @@ message Build {
 }
 
 /********************************************************************
+* Infra Plugin Service
+********************************************************************/
+
+// Infra service is a builder that takes some set of arguments and produces
+// an artifact.
+
+
+service Infrastructure {
+  rpc IsAuthenticator(google.protobuf.Empty) returns (ImplementsResp);
+  rpc Auth(FuncSpec.Args) returns (Auth.AuthResponse);
+  rpc AuthSpec(google.protobuf.Empty) returns (FuncSpec);
+  rpc ValidateAuth(FuncSpec.Args) returns (google.protobuf.Empty);
+  rpc ValidateAuthSpec(google.protobuf.Empty) returns (FuncSpec);
+
+  rpc ConfigStruct(google.protobuf.Empty) returns (Config.StructResp);
+  rpc Configure(Config.ConfigureRequest) returns (google.protobuf.Empty);
+  rpc Documentation(google.protobuf.Empty) returns (Config.Documentation);
+
+  rpc InfraSpec(google.protobuf.Empty) returns (FuncSpec);
+  rpc Infra(FuncSpec.Args) returns (Infra.Resp);
+
+  // rpc IsDestroyer(google.protobuf.Empty) returns (ImplementsResp);
+  // rpc Destroy(FuncSpec.Args) returns (google.protobuf.Empty);
+
+  rpc InfraODR(FuncSpec.Args) returns (Infra.Resp);
+  rpc InfraSpecODR(google.protobuf.Empty) returns (FuncSpec);
+
+}
+
+message Infra {
+  message Resp {
+    opaqueany.Any result = 1;
+    string result_json = 4;
+    map<string, string> labels = 2;
+    bytes template_data = 3;
+  }
+}
+
+/********************************************************************
 * Platform Plugin Service
 ********************************************************************/
 

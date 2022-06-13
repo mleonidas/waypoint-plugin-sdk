@@ -1088,6 +1088,488 @@ var Builder_ServiceDesc = grpc.ServiceDesc{
 	Metadata: "plugin.proto",
 }
 
+// InfrastructureClient is the client API for Infrastructure service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type InfrastructureClient interface {
+	IsAuthenticator(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*ImplementsResp, error)
+	Auth(ctx context.Context, in *FuncSpec_Args, opts ...grpc.CallOption) (*Auth_AuthResponse, error)
+	AuthSpec(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*FuncSpec, error)
+	ValidateAuth(ctx context.Context, in *FuncSpec_Args, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	ValidateAuthSpec(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*FuncSpec, error)
+	ConfigStruct(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*Config_StructResp, error)
+	Configure(ctx context.Context, in *Config_ConfigureRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	Documentation(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*Config_Documentation, error)
+	InfraSpec(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*FuncSpec, error)
+	Infra(ctx context.Context, in *FuncSpec_Args, opts ...grpc.CallOption) (*Infra_Resp, error)
+	InfraODR(ctx context.Context, in *FuncSpec_Args, opts ...grpc.CallOption) (*Infra_Resp, error)
+	InfraSpecODR(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*FuncSpec, error)
+}
+
+type infrastructureClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewInfrastructureClient(cc grpc.ClientConnInterface) InfrastructureClient {
+	return &infrastructureClient{cc}
+}
+
+func (c *infrastructureClient) IsAuthenticator(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*ImplementsResp, error) {
+	out := new(ImplementsResp)
+	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.sdk.Infrastructure/IsAuthenticator", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infrastructureClient) Auth(ctx context.Context, in *FuncSpec_Args, opts ...grpc.CallOption) (*Auth_AuthResponse, error) {
+	out := new(Auth_AuthResponse)
+	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.sdk.Infrastructure/Auth", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infrastructureClient) AuthSpec(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*FuncSpec, error) {
+	out := new(FuncSpec)
+	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.sdk.Infrastructure/AuthSpec", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infrastructureClient) ValidateAuth(ctx context.Context, in *FuncSpec_Args, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.sdk.Infrastructure/ValidateAuth", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infrastructureClient) ValidateAuthSpec(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*FuncSpec, error) {
+	out := new(FuncSpec)
+	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.sdk.Infrastructure/ValidateAuthSpec", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infrastructureClient) ConfigStruct(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*Config_StructResp, error) {
+	out := new(Config_StructResp)
+	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.sdk.Infrastructure/ConfigStruct", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infrastructureClient) Configure(ctx context.Context, in *Config_ConfigureRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.sdk.Infrastructure/Configure", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infrastructureClient) Documentation(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*Config_Documentation, error) {
+	out := new(Config_Documentation)
+	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.sdk.Infrastructure/Documentation", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infrastructureClient) InfraSpec(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*FuncSpec, error) {
+	out := new(FuncSpec)
+	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.sdk.Infrastructure/InfraSpec", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infrastructureClient) Infra(ctx context.Context, in *FuncSpec_Args, opts ...grpc.CallOption) (*Infra_Resp, error) {
+	out := new(Infra_Resp)
+	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.sdk.Infrastructure/Infra", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infrastructureClient) InfraODR(ctx context.Context, in *FuncSpec_Args, opts ...grpc.CallOption) (*Infra_Resp, error) {
+	out := new(Infra_Resp)
+	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.sdk.Infrastructure/InfraODR", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infrastructureClient) InfraSpecODR(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*FuncSpec, error) {
+	out := new(FuncSpec)
+	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.sdk.Infrastructure/InfraSpecODR", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// InfrastructureServer is the server API for Infrastructure service.
+// All implementations must embed UnimplementedInfrastructureServer
+// for forward compatibility
+type InfrastructureServer interface {
+	IsAuthenticator(context.Context, *emptypb.Empty) (*ImplementsResp, error)
+	Auth(context.Context, *FuncSpec_Args) (*Auth_AuthResponse, error)
+	AuthSpec(context.Context, *emptypb.Empty) (*FuncSpec, error)
+	ValidateAuth(context.Context, *FuncSpec_Args) (*emptypb.Empty, error)
+	ValidateAuthSpec(context.Context, *emptypb.Empty) (*FuncSpec, error)
+	ConfigStruct(context.Context, *emptypb.Empty) (*Config_StructResp, error)
+	Configure(context.Context, *Config_ConfigureRequest) (*emptypb.Empty, error)
+	Documentation(context.Context, *emptypb.Empty) (*Config_Documentation, error)
+	InfraSpec(context.Context, *emptypb.Empty) (*FuncSpec, error)
+	Infra(context.Context, *FuncSpec_Args) (*Infra_Resp, error)
+	InfraODR(context.Context, *FuncSpec_Args) (*Infra_Resp, error)
+	InfraSpecODR(context.Context, *emptypb.Empty) (*FuncSpec, error)
+	mustEmbedUnimplementedInfrastructureServer()
+}
+
+// UnimplementedInfrastructureServer must be embedded to have forward compatible implementations.
+type UnimplementedInfrastructureServer struct {
+}
+
+func (UnimplementedInfrastructureServer) IsAuthenticator(context.Context, *emptypb.Empty) (*ImplementsResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method IsAuthenticator not implemented")
+}
+func (UnimplementedInfrastructureServer) Auth(context.Context, *FuncSpec_Args) (*Auth_AuthResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Auth not implemented")
+}
+func (UnimplementedInfrastructureServer) AuthSpec(context.Context, *emptypb.Empty) (*FuncSpec, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AuthSpec not implemented")
+}
+func (UnimplementedInfrastructureServer) ValidateAuth(context.Context, *FuncSpec_Args) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ValidateAuth not implemented")
+}
+func (UnimplementedInfrastructureServer) ValidateAuthSpec(context.Context, *emptypb.Empty) (*FuncSpec, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ValidateAuthSpec not implemented")
+}
+func (UnimplementedInfrastructureServer) ConfigStruct(context.Context, *emptypb.Empty) (*Config_StructResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ConfigStruct not implemented")
+}
+func (UnimplementedInfrastructureServer) Configure(context.Context, *Config_ConfigureRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Configure not implemented")
+}
+func (UnimplementedInfrastructureServer) Documentation(context.Context, *emptypb.Empty) (*Config_Documentation, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Documentation not implemented")
+}
+func (UnimplementedInfrastructureServer) InfraSpec(context.Context, *emptypb.Empty) (*FuncSpec, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InfraSpec not implemented")
+}
+func (UnimplementedInfrastructureServer) Infra(context.Context, *FuncSpec_Args) (*Infra_Resp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Infra not implemented")
+}
+func (UnimplementedInfrastructureServer) InfraODR(context.Context, *FuncSpec_Args) (*Infra_Resp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InfraODR not implemented")
+}
+func (UnimplementedInfrastructureServer) InfraSpecODR(context.Context, *emptypb.Empty) (*FuncSpec, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InfraSpecODR not implemented")
+}
+func (UnimplementedInfrastructureServer) mustEmbedUnimplementedInfrastructureServer() {}
+
+// UnsafeInfrastructureServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InfrastructureServer will
+// result in compilation errors.
+type UnsafeInfrastructureServer interface {
+	mustEmbedUnimplementedInfrastructureServer()
+}
+
+func RegisterInfrastructureServer(s grpc.ServiceRegistrar, srv InfrastructureServer) {
+	s.RegisterService(&Infrastructure_ServiceDesc, srv)
+}
+
+func _Infrastructure_IsAuthenticator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(emptypb.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfrastructureServer).IsAuthenticator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hashicorp.waypoint.sdk.Infrastructure/IsAuthenticator",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfrastructureServer).IsAuthenticator(ctx, req.(*emptypb.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Infrastructure_Auth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FuncSpec_Args)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfrastructureServer).Auth(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hashicorp.waypoint.sdk.Infrastructure/Auth",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfrastructureServer).Auth(ctx, req.(*FuncSpec_Args))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Infrastructure_AuthSpec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(emptypb.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfrastructureServer).AuthSpec(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hashicorp.waypoint.sdk.Infrastructure/AuthSpec",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfrastructureServer).AuthSpec(ctx, req.(*emptypb.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Infrastructure_ValidateAuth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FuncSpec_Args)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfrastructureServer).ValidateAuth(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hashicorp.waypoint.sdk.Infrastructure/ValidateAuth",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfrastructureServer).ValidateAuth(ctx, req.(*FuncSpec_Args))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Infrastructure_ValidateAuthSpec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(emptypb.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfrastructureServer).ValidateAuthSpec(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hashicorp.waypoint.sdk.Infrastructure/ValidateAuthSpec",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfrastructureServer).ValidateAuthSpec(ctx, req.(*emptypb.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Infrastructure_ConfigStruct_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(emptypb.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfrastructureServer).ConfigStruct(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hashicorp.waypoint.sdk.Infrastructure/ConfigStruct",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfrastructureServer).ConfigStruct(ctx, req.(*emptypb.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Infrastructure_Configure_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Config_ConfigureRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfrastructureServer).Configure(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hashicorp.waypoint.sdk.Infrastructure/Configure",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfrastructureServer).Configure(ctx, req.(*Config_ConfigureRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Infrastructure_Documentation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(emptypb.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfrastructureServer).Documentation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hashicorp.waypoint.sdk.Infrastructure/Documentation",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfrastructureServer).Documentation(ctx, req.(*emptypb.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Infrastructure_InfraSpec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(emptypb.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfrastructureServer).InfraSpec(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hashicorp.waypoint.sdk.Infrastructure/InfraSpec",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfrastructureServer).InfraSpec(ctx, req.(*emptypb.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Infrastructure_Infra_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FuncSpec_Args)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfrastructureServer).Infra(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hashicorp.waypoint.sdk.Infrastructure/Infra",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfrastructureServer).Infra(ctx, req.(*FuncSpec_Args))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Infrastructure_InfraODR_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FuncSpec_Args)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfrastructureServer).InfraODR(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hashicorp.waypoint.sdk.Infrastructure/InfraODR",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfrastructureServer).InfraODR(ctx, req.(*FuncSpec_Args))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Infrastructure_InfraSpecODR_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(emptypb.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfrastructureServer).InfraSpecODR(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hashicorp.waypoint.sdk.Infrastructure/InfraSpecODR",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfrastructureServer).InfraSpecODR(ctx, req.(*emptypb.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// Infrastructure_ServiceDesc is the grpc.ServiceDesc for Infrastructure service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var Infrastructure_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hashicorp.waypoint.sdk.Infrastructure",
+	HandlerType: (*InfrastructureServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "IsAuthenticator",
+			Handler:    _Infrastructure_IsAuthenticator_Handler,
+		},
+		{
+			MethodName: "Auth",
+			Handler:    _Infrastructure_Auth_Handler,
+		},
+		{
+			MethodName: "AuthSpec",
+			Handler:    _Infrastructure_AuthSpec_Handler,
+		},
+		{
+			MethodName: "ValidateAuth",
+			Handler:    _Infrastructure_ValidateAuth_Handler,
+		},
+		{
+			MethodName: "ValidateAuthSpec",
+			Handler:    _Infrastructure_ValidateAuthSpec_Handler,
+		},
+		{
+			MethodName: "ConfigStruct",
+			Handler:    _Infrastructure_ConfigStruct_Handler,
+		},
+		{
+			MethodName: "Configure",
+			Handler:    _Infrastructure_Configure_Handler,
+		},
+		{
+			MethodName: "Documentation",
+			Handler:    _Infrastructure_Documentation_Handler,
+		},
+		{
+			MethodName: "InfraSpec",
+			Handler:    _Infrastructure_InfraSpec_Handler,
+		},
+		{
+			MethodName: "Infra",
+			Handler:    _Infrastructure_Infra_Handler,
+		},
+		{
+			MethodName: "InfraODR",
+			Handler:    _Infrastructure_InfraODR_Handler,
+		},
+		{
+			MethodName: "InfraSpecODR",
+			Handler:    _Infrastructure_InfraSpecODR_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "plugin.proto",
+}
+
 // PlatformClient is the client API for Platform service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
