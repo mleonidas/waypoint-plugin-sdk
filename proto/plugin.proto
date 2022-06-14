@@ -46,6 +46,17 @@ message Args {
     uint32 sequence = 6;
   }
 
+  // See component.DeploymentConfig
+  message InfraConfig {
+    string id = 1;
+    string server_addr = 2;
+    bool server_tls = 3;
+    bool server_tls_skip_verify = 4;
+    string entrypoint_invite_token = 5;
+    uint32 sequence = 6;
+  }
+
+
   // DataDir represents the directory where data can be stored. This is an internal
   // struct and shouldn't be used directly. Use the relevant *datadir implementation
   // instead.

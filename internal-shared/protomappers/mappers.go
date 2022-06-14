@@ -48,6 +48,8 @@ var All = []interface{}{
 	LogViewerProto,
 	TaskLaunchInfo,
 	TaskLaunchInfoProto,
+	InfraConfig,
+	InfraConfigProto,
 }
 
 // Source maps Args.Source to component.Source.
@@ -108,6 +110,17 @@ func DatadirProjectProto(input *datadir.Project) *pb.Args_DataDir_Project {
 		CacheDir: input.CacheDir(),
 		DataDir:  input.DataDir(),
 	}
+}
+
+// DeploymentConfig
+func InfraConfig(input *pb.Args_InfraConfig) (*component.InfraConfig, error) {
+	var result component.InfraConfig
+	return &result, mapstructure.Decode(input, &result)
+}
+
+func InfraConfigProto(input *component.InfraConfig) (*pb.Args_InfraConfig, error) {
+	var result pb.Args_InfraConfig
+	return &result, mapstructure.Decode(input, &result)
 }
 
 // DatadirApp maps *pb.Args_DataDir_App to *datadir.App
