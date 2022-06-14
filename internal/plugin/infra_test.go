@@ -37,7 +37,7 @@ func TestInfraStructureInfra(t *testing.T) {
 	defer client.Close()
 	defer server.Stop()
 
-	raw, err := client.Dispense("infrastructure")
+	raw, err := client.Dispense("infra")
 	require.NoError(err)
 	infra := raw.(component.Infra)
 	f := infra.InfraFunc().(*argmapper.Func)
@@ -62,7 +62,7 @@ func TestInfraStructureInfra(t *testing.T) {
 }
 
 func TestInfraDynamicFunc_auth(t *testing.T) {
-	testDynamicFunc(t, "infrastructure", &mockInfraAuthenticator{}, func(v, f interface{}) {
+	testDynamicFunc(t, "infra", &mockInfraAuthenticator{}, func(v, f interface{}) {
 		v.(*mockInfraAuthenticator).Authenticator.On("AuthFunc").Return(f)
 	}, func(raw interface{}) interface{} {
 		return raw.(component.Authenticator).AuthFunc()
@@ -70,7 +70,7 @@ func TestInfraDynamicFunc_auth(t *testing.T) {
 }
 
 func TestInfraDynamicFunc_validateAuth(t *testing.T) {
-	testDynamicFunc(t, "infrastructure", &mockInfraAuthenticator{}, func(v, f interface{}) {
+	testDynamicFunc(t, "infra", &mockInfraAuthenticator{}, func(v, f interface{}) {
 		v.(*mockInfraAuthenticator).Authenticator.On("ValidateAuthFunc").Return(f)
 	}, func(raw interface{}) interface{} {
 		return raw.(component.Authenticator).ValidateAuthFunc()
@@ -79,7 +79,7 @@ func TestInfraDynamicFunc_validateAuth(t *testing.T) {
 
 func TestInfraConfig(t *testing.T) {
 	mockV := &mockInfraConfigurable{}
-	testConfigurable(t, "infrastructure", mockV, &mockV.Configurable)
+	testConfigurable(t, "infra", mockV, &mockV.Configurable)
 }
 
 type mockInfraAuthenticator struct {
